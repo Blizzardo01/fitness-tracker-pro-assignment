@@ -13,7 +13,6 @@ export function ActivityItem() {
     useEffect(() => {
         async function fetchActivity() {
         const data = await getActivity(id);
-        console.log(data);
         setActivity(data);
         }
 
@@ -26,13 +25,12 @@ export function ActivityItem() {
 
 
     const tryDelete = async () => {
-    setError(null);
 
     try {
       await deleteActivity(token, activity.id);
       navigate("/");
     } catch (e) {
-      setError(e.message);
+      alert("You can not delete this entry because you are not the owner who made it")
     }
   };
 
