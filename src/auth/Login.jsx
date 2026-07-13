@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 /** A form that allows users to log into an existing account. */
 export default function Login() {
   const { login } = useAuth();
-  const { setPage } = usePage();
 
   const [error, setError] = useState(null);
 
@@ -38,7 +37,7 @@ export default function Login() {
         {error && <p role="alert">{error}</p>}
       </form>
       <Link to="/login">
-      
+      Don't have an account? Sign up here.
       </Link>
     </>
   );
