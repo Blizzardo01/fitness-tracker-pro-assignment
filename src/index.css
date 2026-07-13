@@ -1,33 +1,169 @@
+/* Global reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-form,
-label,
-main {
-  display: grid;
-  gap: 0.5rem;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  line-height: 1.5;
 }
 
+/* Main app container */
 #root {
-  width: 45ch;
+  width: min(90%, 800px);
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
+/* Header / Navbar */
 header {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
+  align-items: center;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+header p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #008080;
 }
 
 header nav {
   display: flex;
-  gap: 1ch;
+  gap: 1.2rem;
 }
 
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: #e6f7f7;
+  color: teal;
+  cursor: pointer;
+}
+
+nav a.active {
+  background: teal;
+  color: white;
+}
+
+
+/* Headings */
+h1 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+
+/* Forms */
+form,
+label,
+main {
+  display: grid;
+  gap: 0.75rem;
+}
+
+form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+input,
+textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid teal;
+  border-color: teal;
+}
+
+
+/* Buttons */
+button {
+  background: teal;
+  color: white;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #006d6d;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* Activity list */
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+
+li {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+
+/* Activity links */
+li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li a:hover {
+  color: teal;
+}
+
+
+/* Activity details page */
+section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+section p {
+  margin: 0.5rem 0;
+}
+
+
+/* Back links */
 a {
   color: teal;
 }
@@ -37,11 +173,30 @@ a:hover {
   text-decoration: underline;
 }
 
-ul,
-ol {
-  padding-left: 1rem;
+
+/* Error messages */
+p[role="alert"] {
+  color: crimson;
+  background: #ffe8e8;
+  padding: 0.5rem;
+  border-radius: 6px;
 }
 
-p[role="alert"] {
-  color: red;
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #root {
+    width: 95%;
+    padding: 1rem;
+  }
 }
