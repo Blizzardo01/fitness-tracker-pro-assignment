@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
-import { usePage } from "../layout/PageContext";
 
 /** A form that allows users to register for a new account */
 export default function Register() {
   const { register } = useAuth();
-  const { setPage } = usePage();
 
   const [error, setError] = useState(null);
 
@@ -37,9 +35,10 @@ export default function Register() {
         <button>Register</button>
         {error && <p role="alert">{error}</p>}
       </form>
-      <a onClick={() => setPage("login")}>
-        Already have an account? Log in here.
-      </a>
+      <Link to="/login">
+      <p>Already have an account? Log in here.</p>
+      </Link>
+
     </>
   );
 }

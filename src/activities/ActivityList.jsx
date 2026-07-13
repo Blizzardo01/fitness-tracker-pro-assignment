@@ -21,17 +21,6 @@ function ActivityListItem({ activity, syncActivities }) {
 
   const [error, setError] = useState(null);
 
-  const tryDelete = async () => {
-    setError(null);
-
-    try {
-      await deleteActivity(token, activity.id);
-      syncActivities();
-    } catch (e) {
-      setError(e.message);
-    }
-  };
-
   return (
     <li>
       <p>{activity.name}</p>
